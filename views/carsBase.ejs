@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Best Cars</title>
+  </head>
+  <body>
+    <div class="cars-container">
+      <% if(carsBase) {%> <% carsBase.forEach((car) => { %>
+      <div class="car">
+        <h2 class="car-model"><%=car.id %></h2>
+        <h2 class="car-model"><%=car.model %></h2>
+        <h3 class="car-mark"><%=car.mark %></h3>
+        <h4 class="car-year"><%=car.year %></h4>
+        <h4 class="car-price"><%=car.price %></h4>
+        <h4 class="car-engine"><%=car.engine %></h4>
+        <img class="car-img" src="<%=car.img %>" alt="<%=car.model %>" />
+      </div>
+      <%})%> <% } else { %>
+      <p class="error-message">Car not found</p>
+      <%}%>
+    </div>
+  </body>
+</html>
