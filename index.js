@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import dotenv from 'dotenv';
 import carRoutes from './routes/carRouter.js';
+import logger from './middleware/logger.js';
 
 // initialization PORT
 dotenv.config();
@@ -27,7 +28,8 @@ app.set('views', path.join(PATH, 'views'));
 app.use(express.static(path.join(PATH, 'public')));
 
 // add middleware
-app.use('/cars', carRoutes);
+app.use('/api/cars', carRoutes);
+app.use(logger);
 
 app.use((req, res) => {
   res.status(404).render('404', {
